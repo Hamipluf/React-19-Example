@@ -1,25 +1,20 @@
 import { createContext, useState, useCallback } from "react";
 
-const user = {
-  id: null,
-  first_name: null,
-  last_name: null,
-  full_name: () => first_name + last_name,
-};
 
-export const UserContext = createContext({ user, isLogger: false });
+export const UserContext = createContext({ id: null, firstName: null, isLogged: false });
 
 export const UserContextProvider = ({ children }) => {
-  const [user, setUser] = useState(null);
+  const [firstName, setFirstName] = useState(null);
+  const [id, setId] = useState(null);
   const [isLogged, setIsLogged] = useState(false);
 
-  const updateUser = useCallback(({ user, isLogged }) => {
-    setUser(user), setIsLogged(isLogged);
+  const updateUser = useCallback(({ id, name, isLogged }) => {
+    setFirstName(name), setIsLogged(isLogged), setId(id)
   }, []);
 
   return (
-    <UserContextProvider value={(user, isLogged, updateUser)}>
+    <UserContext value={{ id, firstName, isLogged, updateUser }}>
       {children}
-    </UserContextProvider>
+    </UserContext>
   );
 };

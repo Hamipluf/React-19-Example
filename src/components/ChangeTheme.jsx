@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 
 const ThemeChange = () => {
-  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+  const [theme, setTheme] = useState(
+    localStorage.getItem("theme") || "dracula"
+  );
 
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
@@ -20,8 +22,8 @@ const ThemeChange = () => {
         value="synthwave"
         onChange={(e) =>
           e.target.checked
-            ? handleThemeChange("dracula")
-            : handleThemeChange("light")
+            ? handleThemeChange("winter")
+            : handleThemeChange(" dracula")
         }
       />
 
