@@ -11,7 +11,10 @@ const Login = () => {
           alt="background"
           className="object-cover object-center h-screen w-7/12 m-2"
         />
-        <button onClick={() => navigate(-1)} className="btn btn-circle btn-accent btn-sm m-4">
+        <button
+          onClick={() => navigate(-1)}
+          className="btn btn-circle btn-accent btn-sm m-4"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -19,10 +22,10 @@ const Login = () => {
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-back-up"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="icon icon-tabler icons-tabler-outline icon-tabler-arrow-back-up"
           >
             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
             <path d="M9 14l-4 -4l4 -4" />
