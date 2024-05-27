@@ -12,9 +12,9 @@ const FormLogin = () => {
   useEffect(() => {
     if (response && response.data) {
       if (!response?.data.success) {
-        toast.error(response.data.message);
+        return toast.error(response.data.message);
       } else {
-        navigate("/feed");
+        return window.location.assign("/login");
       }
     }
   }, [response]);

@@ -2,12 +2,13 @@ import { use } from "react";
 import { UserContext } from "../context/user";
 import ThemeChange from "./ChangeTheme";
 import { Link } from "react-router-dom";
+import LogOutButton from "./LogOutButton";
 const NavBar = () => {
   const { id, firstName, isLogged, updateUser } = use(UserContext);
   return (
     <>
       {isLogged ? (
-        <div className="navbar bg-accent shadow-xl">
+        <nav className="navbar bg-accent shadow-xl">
           <div className="flex-1">
             <a className="btn btn-ghost text-xl">ReactSocial-19</a>
           </div>
@@ -49,14 +50,14 @@ const NavBar = () => {
                   <a>Settings</a>
                 </li>
                 <li>
-                  <a>Logout</a>
+                  <LogOutButton />
                 </li>
               </ul>
             </div>
           </div>
-        </div>
+        </nav>
       ) : (
-        <div className="navbar bg-accent shadow-xl">
+        <nav className="navbar bg-accent shadow-xl">
           <div className="flex-1">
             <Link to="/" className="btn btn-ghost text-xl">
               ReactSocial-19
@@ -75,7 +76,7 @@ const NavBar = () => {
               </Link>
             </ul>
           </div>
-        </div>
+        </nav>
       )}
     </>
   );

@@ -1,4 +1,4 @@
-import { loginUser } from "../../utils/helpers/login";
+import { loginUser } from "../../utils/helpers/users/login";
 
 export const loginAction = (updateState) => async (previousState, formData) => {
   const datalogin = {

@@ -3,24 +3,24 @@ import { Routes, Route } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 // Pages
-import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-import Feed from "./pages/Feed";
+import OnBoarding from "./pages/OnBoarding";
+import Home from "./pages/Home";
 // Protected Route
 import ProtectedRoute from "./components/ProtectedRoutes";
 function App() {
   return (
     <div>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<OnBoarding />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route
-          path="/feed"
+          path="/home"
           element={
             <ProtectedRoute>
-              <Feed />
+              <Home />
             </ProtectedRoute>
           }
         />

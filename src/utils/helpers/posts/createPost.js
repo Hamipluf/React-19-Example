@@ -1,9 +1,9 @@
 import axios from "axios";
-import { api_url } from "../config";
-export const currentUser = async () => {
+import { api_url } from "../../config";
+export const createPost = async () => {
   const token = localStorage.getItem("token");
   try {
-    const apiResponse = await axios.get(`${api_url}/users/current`, {
+    const apiResponse = await axios.post(`${api_url}/posts/create-post`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },

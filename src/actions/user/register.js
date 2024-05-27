@@ -1,4 +1,4 @@
-import { registerUser } from "../../utils/helpers/register";
+import { registerUser } from "../../utils/helpers/users/register";
 
 export const registerAction =
   (updateState) => async (previousState, formData) => {

@@ -4,11 +4,12 @@ import { useNavigate } from "react-router-dom";
 import { UserContext } from "../context/user";
 import { useContext, useEffect } from "react";
 const Login = () => {
-  const navigate = useNavigate();
   const { isLogged } = useContext(UserContext);
+  const navigate = useNavigate()
   useEffect(() => {
-    if(isLogged) return navigate('/feed')
-  }, []);
+    console.log(isLogged);
+    if (isLogged) return navigate('/home')
+  }, [isLogged]);
 
   return (
     <section className="min-h-screen flex items-stretch text-white overflow-hidden">

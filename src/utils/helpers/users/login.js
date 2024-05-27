@@ -1,5 +1,5 @@
 import axios from "axios";
-import { api_url } from "../config";
+import { api_url } from "../../config";
 export const loginUser = async (userData) => {
   try {
     const apiResponse = await axios.post(`${api_url}/users/login`, userData);
