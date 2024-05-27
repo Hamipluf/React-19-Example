@@ -4,7 +4,6 @@ import ThemeChange from "./ChangeTheme";
 import { Link } from "react-router-dom";
 const NavBar = () => {
   const { id, firstName, isLogged, updateUser } = use(UserContext);
-  console.log(id, firstName, isLogged);
   return (
     <>
       {isLogged ? (
@@ -68,12 +67,12 @@ const NavBar = () => {
           </div>
           <div className="flex-none">
             <ul className="menu menu-horizontal px-1 gap-x-5">
-              <li className="btn btn-sm  btn-secondary">
-                <Link to="/login">Login</Link>
-              </li>
-              <li className="btn btn-sm btn-secondary">
-                <Link to="/register">SignIn</Link>
-              </li>
+              <Link className="btn btn-sm  btn-secondary" to="/login">
+                <li>Login</li>
+              </Link>
+              <Link className="btn btn-sm btn-secondary" to="/register">
+                <li>SignIn</li>
+              </Link>
             </ul>
           </div>
         </div>

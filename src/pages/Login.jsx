@@ -1,15 +1,22 @@
 import PhoneImage from "../assets/phone-mock-1.jpg";
 import FormLogin from "../components/FormLogin";
 import { useNavigate } from "react-router-dom";
+import { UserContext } from "../context/user";
+import { useContext, useEffect } from "react";
 const Login = () => {
   const navigate = useNavigate();
+  const { isLogged } = useContext(UserContext);
+  useEffect(() => {
+    if(isLogged) return navigate('/feed')
+  }, []);
+
   return (
     <section className="min-h-screen flex items-stretch text-white overflow-hidden">
       <div className="w-full h-screen flex">
         <img
           src={PhoneImage}
           alt="background"
-          className="object-cover object-center h-screen w-7/12 m-2"
+          className="object-cover object-center h-screen w-6/12 m-2"
         />
         <button
           onClick={() => navigate(-1)}

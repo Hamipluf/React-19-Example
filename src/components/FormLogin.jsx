@@ -1,22 +1,26 @@
-import { useAcitionState, useState } from "react";
-import { loginUser } from "../utils/login";
-
-const loginAction = async (previosState, formData) => {
-  const datalogin = {
-    email: formData.get("email"),
-    password: formData.get("password"),
-  };
-  const login = await loginUser(datalogin);
-  console.log(login);
-  return null
-};
+import { useActionState, useState, useEffect } from "react";
+import { loginAction } from "../actions/user/login";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const FormLogin = () => {
-  const [error, submitAction, isPending] = useAcitionState(loginAction);
-  console.log(error, submitAction, isPending);
+  const [response, setResponse] = useState(null);
+  const navigate = useNavigate();
+  const loginUserAction = loginAction(setResponse);
+
+  const [error, submitAction, isPending] = useActionState(loginUserAction);
+  useEffect(() => {
+    if (response && response.data) {
+      if (!response?.data.success) {
+        toast.error(response.data.message);
+      } else {
+        navigate("/feed");
+      }
+    }
+  }, [response]);
 
   return (
-    <form className="w-1/2 text-center">
+    <form action={submitAction} className="w-1/2 text-center">
       <input
         type="text"
         name="email"
@@ -29,7 +33,16 @@ const FormLogin = () => {
         placeholder="password"
         className="shadow-md border w-full h-10 px-3 py-2 text-primary focus:outline-none focus:border-primary mb-3 rounded"
       />
-      <button className="btn btn-secondary max-w-md w-full">Sign In</button>
+      <button
+        disabled={isPending}
+        className="btn btn-secondary max-w-md w-full"
+      >
+        {isPending ? (
+          <span className="loading loading-ring loading-lg"></span>
+        ) : (
+          "Sign In"
+        )}
+      </button>
     </form>
   );
 };
