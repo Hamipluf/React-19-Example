@@ -1,5 +1,5 @@
-import Footer from "../components/Footer";
-import Hero from "../components/Hero";
+import Footer from "../components/layout/Footer";
+import Hero from "../components/layout/Hero";
 
 export const OnBoarding = () => {
   return (

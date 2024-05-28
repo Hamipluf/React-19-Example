@@ -1,4 +1,4 @@
-import FormRegister from "../components/FormRegister";
+import FormRegister from "../components/user/FormRegister";
 import PhoneImage from "../assets/phone-mock-1.jpg";
 const Register = () => {
   return (

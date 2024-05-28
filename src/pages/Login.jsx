@@ -1,5 +1,5 @@
 import PhoneImage from "../assets/phone-mock-1.jpg";
-import FormLogin from "../components/FormLogin";
+import FormLogin from "../components/user/FormLogin";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../context/user";
 import { useContext, useEffect } from "react";
@@ -7,7 +7,6 @@ const Login = () => {
   const { isLogged } = useContext(UserContext);
   const navigate = useNavigate()
   useEffect(() => {
-    console.log(isLogged);
     if (isLogged) return navigate('/home')
   }, [isLogged]);
 

@@ -1,8 +1,8 @@
 import { use } from "react";
-import { UserContext } from "../context/user";
+import { UserContext } from "../../context/user";
 import ThemeChange from "./ChangeTheme";
 import { Link } from "react-router-dom";
-import LogOutButton from "./LogOutButton";
+import LogOutButton from "../user/LogOutButton";
 const NavBar = () => {
   const { id, firstName, isLogged, updateUser } = use(UserContext);
   return (

@@ -1,5 +1,5 @@
 import { useActionState, useState, useEffect } from "react";
-import { registerAction } from "../actions/user/register";
+import { registerAction } from "../../actions/user/register";
 import { toast } from "react-toastify";
 import { Link, useNavigate } from "react-router-dom";
 

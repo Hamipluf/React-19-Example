@@ -6,8 +6,7 @@ export const createPostAction =
       title: formData.get("title"),
       content: formData.get("content"),
     };
-    const apiResponse = await createPost(dataPost); 
-    console.log("ENLAAPIII",apiResponse)
+    const apiResponse = await createPost(dataPost);
     updateState(apiResponse);
     return null;
   };
